@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # LearnTrack Student & Course Management System
 
 ## Project Description
@@ -105,3 +106,6 @@ src/main/java/com/airtribe/learntrack/
 ├── service/                  # Business logic services
 └── util/                     # Utility classes and exceptions
 ```
+=======
+
+>>>>>>> d46e63fbcc44beaf0d16a8688677cdc081cc539a
