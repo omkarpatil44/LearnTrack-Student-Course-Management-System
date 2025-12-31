@@ -14,28 +14,10 @@ public class TrainerEntity extends Person{
         this.type = type;
     }
 
-//    public String getFirstName() {
-//        return firstName;
-//    }
-//    public String getLastName() {
-//        return lastName;
-//    }
-//    public String getEmail() {
-//        return email;
-//    }
     public TrainerType getType() {
         return type;
     }
 
-//    public void setFirstName(String firstName) {
-//        this.firstName = firstName;
-//    }
-//    public void setLastName(String lastName) {
-//        this.lastName = lastName;
-//    }
-//    public void setEmail(String email) {
-//        this.email = email;
-//    }
     public void setType(TrainerType type) {
         this.type = type;
     }
