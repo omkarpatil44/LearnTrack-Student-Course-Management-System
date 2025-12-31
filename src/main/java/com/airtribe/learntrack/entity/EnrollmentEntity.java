@@ -1,6 +1,7 @@
 package com.airtribe.learntrack.entity;
 
 import com.airtribe.learntrack.constant.Statuses;
+import com.airtribe.learntrack.util.Utility;
 
 import java.time.LocalDate;
 import java.util.Date;
@@ -13,6 +14,7 @@ public class EnrollmentEntity {
     private Statuses status;
 
     public EnrollmentEntity(long studentId, long courseId, Statuses status, LocalDate enrollmentDate) {
+        this.id = Utility.getNextEnrollmentId();
         this.studentId = studentId;
         this.courseId = courseId;
         this.status = status;

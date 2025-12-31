@@ -232,11 +232,10 @@ public class Main {
                     long studentId = Long.parseLong(eReader.readLine());
                     System.out.println("Please enter CourseId to enroll");
                     long courseId = Long.parseLong(eReader.readLine());
-                    boolean res = enrollmentService.enrollStudent(studentId, courseId);
-                    if (res) {
-                        System.out.println("Student Enrolled");
-                        this.switchCase("3", studentService, courseService,enrollmentService);
-                    }
+                    String res = enrollmentService.enrollStudent(studentId, courseId);
+                    System.out.println(res);
+                    this.switchCase("3", studentService, courseService,enrollmentService);
+
                 }
                 case "2" -> {
                     List<EnrollmentEntity> enrollmentEntities = enrollmentService.getEnrollmentEntityList();

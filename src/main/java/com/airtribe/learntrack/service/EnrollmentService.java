@@ -2,6 +2,7 @@ package com.airtribe.learntrack.service;
 
 import com.airtribe.learntrack.constant.Statuses;
 import com.airtribe.learntrack.entity.EnrollmentEntity;
+import com.airtribe.learntrack.util.Utility;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -13,14 +14,22 @@ public class EnrollmentService {
     List<EnrollmentEntity> enrollmentEntityList = new ArrayList<>();
 
     public EnrollmentService(){
-        enrollmentEntityList.add(new EnrollmentEntity(1,1, Statuses.ACTIVE, LocalDate.now()));
-        enrollmentEntityList.add(new EnrollmentEntity(2, 2, Statuses.ACTIVE, LocalDate.now()));
+        enrollmentEntityList.add(new EnrollmentEntity(1, 1, Statuses.ACTIVE, LocalDate.now()));
+        enrollmentEntityList.add(new EnrollmentEntity( 2, 2, Statuses.ACTIVE, LocalDate.now()));
     }
 
-    public Boolean enrollStudent(long studentId, long courseId) {
+    public String enrollStudent(long studentId, long courseId) {
+        // Check if student is already enrolled in the course
+        boolean alreadyEnrolled = enrollmentEntityList.stream()
+                .anyMatch(enrollment -> enrollment.getStudentId() == studentId && enrollment.getCourseId() == courseId);
+        
+        if (alreadyEnrolled) {
+            return "Student already enrolled in this course";
+        }
+        
         EnrollmentEntity enrollment = new EnrollmentEntity(studentId, courseId, Statuses.ACTIVE, LocalDate.now());
         enrollmentEntityList.add(enrollment);
-        return true;
+        return "Student enrolled successfully";
     }
 
     public List<EnrollmentEntity> getEnrollmentEntityList() {
